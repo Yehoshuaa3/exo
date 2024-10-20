@@ -268,6 +268,9 @@ jobs:
             ls
             mkdir -p exo.AppDir/usr/bin
             cp -r env/lib/python3.12/site-packages/tinygrad exo.AppDir/usr/bin
+            cd dist
+            ls 
+            cd ..
             cp -r dist/main.dist/* exo.AppDir/usr/bin
             # copying icons from docs to exo.AppDir
             cp docs/exo-rounded.png exo.AppDir
