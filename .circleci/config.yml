@@ -264,6 +264,8 @@ jobs:
           command: |
             wget -O appimage-builder-x86_64.AppImage https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage
             chmod +x appimage-builder-x86_64.AppImage
+            pwd
+            ls
             mkdir -p exo.AppDir/usr/bin
             cp -r env/lib/python3.12/site-packages/tinygrad exo.AppDir/usr/bin
             cp -r dist/main.dist/* exo.AppDir/usr/bin
@@ -326,5 +328,4 @@ workflows:
     jobs:
       - build_exo_macos
       - build_exo_linux
-      - build_exo_windows
       # - chatgpt_api_integration_test_tinygrad
