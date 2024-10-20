@@ -268,9 +268,8 @@ jobs:
             ls
             mkdir -p exo.AppDir/usr/bin
             cp -r env/lib/python3.12/site-packages/tinygrad exo.AppDir/usr/bin
-            cd dist
-            ls 
-            cd ..
+            chmod -R a+r dist/main.dist
+            echo dist/main.dist/* | wc -w
             cp -r dist/main.dist/* exo.AppDir/usr/bin
             # copying icons from docs to exo.AppDir
             cp docs/exo-rounded.png exo.AppDir
@@ -329,6 +328,5 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_exo_macos
       - build_exo_linux
       # - chatgpt_api_integration_test_tinygrad
