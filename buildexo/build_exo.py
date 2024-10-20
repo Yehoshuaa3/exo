@@ -12,8 +12,7 @@ def run():
         "--output-dir=dist",
         "--follow-imports",
         "--standalone",
-        "--output-filename=exo",
-        "--static-libpython=yes"
+        "--output-filename=exo"
     ]
 
     if sys.platform == "darwin": 
