@@ -232,7 +232,6 @@ jobs:
       - run:
           name: Create a macOS app
           command: |
-            which python3
             mv dist/main.app dist/exo.app
         
   build_exo_linux:
