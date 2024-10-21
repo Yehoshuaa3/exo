@@ -6,7 +6,7 @@ def run():
     python_version = f"python{sys.version_info.major}.{sys.version_info.minor}"
 
     command = [
-        f"{sys.executable}", "-m", "nuitka", "exo/main.py",
+        f"{sys.executable}", "-m", "nuitka", "--clang" "exo/main.py",
         "--company-name=exolabs",
         "--product-name=exo",
         "--output-dir=dist",
@@ -43,7 +43,6 @@ def run():
         ])
     elif sys.platform.startswith("linux"):  
         command.extend([
-            "--lto=no",
             "--include-distribution-metadata=pygments",
             "--linux-icon=docs/exo-logo-linux.xpm",
             "--clean-cache=ccache"
