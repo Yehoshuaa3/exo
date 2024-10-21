@@ -45,7 +45,8 @@ def run():
         command.extend([
             "--lto=no",
             "--include-distribution-metadata=pygments",
-            "--linux-icon=docs/exo-logo-linux.xpm"
+            "--linux-icon=docs/exo-logo-linux.xpm",
+            "--clean-cache=ccache"
         ])
 
     command.extend([
