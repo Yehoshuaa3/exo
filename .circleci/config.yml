@@ -245,6 +245,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y python3 python3-venv
+            sudo apt-get install clang
             sudo apt-get install patchelf
             python3 -m venv env
       - run:
@@ -258,6 +259,7 @@ jobs:
           no_output_timeout: 45m
           command: |
             source env/bin/activate
+            CC=clang \
             python3 buildexo/build_exo.py
       - run:
           name: Create an AppImage
@@ -268,8 +270,6 @@ jobs:
             ls
             mkdir -p exo.AppDir/usr/bin
             cp -r env/lib/python3.12/site-packages/tinygrad exo.AppDir/usr/bin
-            chmod -R a+r dist/main.dist
-            echo dist/main.dist/* | wc -w
             cp -r dist/main.dist/* exo.AppDir/usr/bin
             # copying icons from docs to exo.AppDir
             cp docs/exo-rounded.png exo.AppDir
